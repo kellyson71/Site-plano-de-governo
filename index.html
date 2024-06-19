@@ -6,6 +6,7 @@
     <title>Plano de Governo</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
     <style>
         body {
             font-family: 'Roboto', sans-serif;
@@ -54,7 +55,7 @@
             width: 100%;
             position: relative;
             padding-bottom: 56.25%;
-            height: 250px;
+            height: 0;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             border-radius: 8px;
             overflow: hidden;
@@ -107,7 +108,7 @@
         .dot.active, .dot:hover {
             background-color: #4CAF50;
         }
-        .title-container {
+        .title-container, .form-container {
             max-width: 800px;
             width: 100%;
             text-align: center;
@@ -130,16 +131,6 @@
             margin-top: 20px;
             text-align: left;
         }
-        .form-container {
-            max-width: 800px;
-            width: 100%;
-            text-align: center;
-            margin: 40px 20px;
-            padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            border-radius: 8px;
-        }
         .form-container iframe {
             width: 100%;
             height: 1500px;
@@ -154,18 +145,18 @@
 </head>
 <body>
 
-<header>
+<header data-aos="fade-down">
     <img src="logo vazada horizontal copiar.png" alt="Plano de Governo">
     <div>Plano de Governo</div>
 </header>
 
-<div class="video-title">Pau dos Ferros Merece Mais</div>
+<div class="video-title" data-aos="fade-up">Pau dos Ferros Merece Mais</div>
 
-<div class="video-container">
+<div class="video-container" data-aos="fade-up">
     <iframe src="https://www.instagram.com/reel/C6_mmYiOTTv/embed" allowfullscreen></iframe>
 </div>
 
-<div class="slideshow-container">
+<div class="slideshow-container" data-aos="fade-up">
     <div class="slide active">
         <img src="https://via.placeholder.com/800x400.png?text=Foto+1" alt="Foto 1">
     </div>
@@ -176,13 +167,13 @@
         <img src="https://via.placeholder.com/800x400.png?text=Foto+3" alt="Foto 3">
     </div>
 </div>
-<div class="dots">
+<div class="dots" data-aos="fade-up">
     <span class="dot active" onclick="currentSlide(0)"></span>
     <span class="dot" onclick="currentSlide(1)"></span>
     <span class="dot" onclick="currentSlide(2)"></span>
 </div>
 
-<div class="title-container">
+<div class="title-container" data-aos="fade-up">
     <h2><i class="fas fa-bullhorn icon"></i>Consulta Pública Para Construção De Um Plano De Governo Popular Para Natal!</h2>
     <p>Já é hora de transformar a Natal de nossos sonhos em realidade. E sabemos que essa cidade tão bonita e acolhedora só terá a cara do povo que nela vive se for dado a ele a oportunidade de dizer o que deve ser feito por uma prefeitura popular. Por isso, gostaríamos de saber o que você acha que deve ser prioridade em um plano de governo comprometido com a garantia de direitos para o povo que vive em Natal.</p>
     <p>Por meio deste formulário, você pode contribuir com esse plano de duas formas:</p>
@@ -193,32 +184,40 @@
     <p>Simbora transformar a Natal de nossos sonhos em realidade!</p>
 </div>
 
-<div class="form-container">
+<div class="form-container" data-aos="fade-up">
     <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScp9H81KSSibfSvb0oSurLsrFBSeMayqm8nb0vPIQ0qRkCC6A/viewform?embedded=true">Carregando…</iframe>
 </div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 <script>
-    let slideIndex = 0;
-    showSlides();
+    document.addEventListener('DOMContentLoaded', function() {
+        AOS.init({
+            duration: 1000,
+            once: true,
+        });
 
-    function showSlides() {
-        let slides = document.getElementsByClassName("slide");
-        let dots = document.getElementsByClassName("dot");
-        for (let i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";  
-            dots[i].classList.remove("active");
-        }
-        slideIndex++;
-        if (slideIndex > slides.length) {slideIndex = 1}    
-        slides[slideIndex-1].style.display = "block";  
-        dots[slideIndex-1].classList.add("active");
-        setTimeout(showSlides, 3000); // Change image every 3 seconds
-    }
-
-    function currentSlide(index) {
-        slideIndex = index;
+        let slideIndex = 0;
         showSlides();
-    }
+
+        function showSlides() {
+            let slides = document.getElementsByClassName("slide");
+            let dots = document.getElementsByClassName("dot");
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+                dots[i].classList.remove("active");
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) { slideIndex = 1 }
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].classList.add("active");
+            setTimeout(showSlides, 3000);
+        }
+
+        window.currentSlide = function(index) {
+            slideIndex = index;
+            showSlides();
+        }
+    });
 </script>
 
 </body>
