@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plano de Governo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        header {
+            background: linear-gradient(90deg, #4CAF50 0%, #388E3C 100%);
+            color: white;
+            width: 100%;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 36px;
+            font-weight: 700;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-bottom: 2px solid #388E3C;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        header img {
+            width: 200px;
+            margin-bottom: 10px;
+        }
+        .video-title {
+            font-size: 26px;
+            font-weight: 700;
+            color: #388E3C;
+            margin: 20px 0 10px;
+            text-align: center;
+            position: relative;
+            padding: 10px 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .video-container {
+            margin: 20px;
+            max-width: 800px;
+            width: 100%;
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 250px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: #000;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 8px;
+        }
+        .slideshow-container {
+            position: relative;
+            max-width: 800px;
+            width: 100%;
+            margin: 20px auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .slide {
+            display: none;
+            transition: opacity 1s;
+        }
+        .slide img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .active {
+            display: block;
+        }
+        .dots {
+            text-align: center;
+            margin-top: 10px;
+        }
+        .dot {
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+            cursor: pointer;
+        }
+        .dot.active, .dot:hover {
+            background-color: #4CAF50;
+        }
+        .title-container {
+            max-width: 800px;
+            width: 100%;
+            text-align: center;
+            margin: 40px 20px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+        }
+        .title-container h2 {
+            font-size: 32px;
+            font-weight: 700;
+            margin: 0;
+            color: #388E3C;
+        }
+        .title-container p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #555;
+            margin-top: 20px;
+            text-align: left;
+        }
+        .form-container {
+            max-width: 800px;
+            width: 100%;
+            text-align: center;
+            margin: 40px 20px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+        }
+        .form-container iframe {
+            width: 100%;
+            height: 1500px;
+            border: none;
+            border-radius: 8px;
+        }
+        .icon {
+            margin-right: 10px;
+            color: #4CAF50;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="logo vazada horizontal copiar.png" alt="Plano de Governo">
+    <div>Plano de Governo</div>
+</header>
+
+<div class="video-title">Pau dos Ferros Merece Mais</div>
+
+<div class="video-container">
+    <iframe src="https://www.instagram.com/reel/C6_mmYiOTTv/embed" allowfullscreen></iframe>
+</div>
+
+<div class="slideshow-container">
+    <div class="slide active">
+        <img src="https://via.placeholder.com/800x400.png?text=Foto+1" alt="Foto 1">
+    </div>
+    <div class="slide">
+        <img src="https://via.placeholder.com/800x400.png?text=Foto+2" alt="Foto 2">
+    </div>
+    <div class="slide">
+        <img src="https://via.placeholder.com/800x400.png?text=Foto+3" alt="Foto 3">
+    </div>
+</div>
+<div class="dots">
+    <span class="dot active" onclick="currentSlide(0)"></span>
+    <span class="dot" onclick="currentSlide(1)"></span>
+    <span class="dot" onclick="currentSlide(2)"></span>
+</div>
+
+<div class="title-container">
+    <h2><i class="fas fa-bullhorn icon"></i>Consulta Pública Para Construção De Um Plano De Governo Popular Para Natal!</h2>
+    <p>Já é hora de transformar a Natal de nossos sonhos em realidade. E sabemos que essa cidade tão bonita e acolhedora só terá a cara do povo que nela vive se for dado a ele a oportunidade de dizer o que deve ser feito por uma prefeitura popular. Por isso, gostaríamos de saber o que você acha que deve ser prioridade em um plano de governo comprometido com a garantia de direitos para o povo que vive em Natal.</p>
+    <p>Por meio deste formulário, você pode contribuir com esse plano de duas formas:</p>
+    <p><i class="fas fa-lightbulb icon"></i>1) apresentando propostas que você acha que devem ser incluídas no plano de governo;</p>
+    <p><i class="fas fa-exclamation-triangle icon"></i>2) relatando problemas que você sabe que Natal enfrenta e que precisam ser solucionados.</p>
+    <p>Pedimos que, ao preencher o formulário, indique uma proposta ou um problema por vez.</p>
+    <p>Agradecemos muito a sua contribuição.</p>
+    <p>Simbora transformar a Natal de nossos sonhos em realidade!</p>
+</div>
+
+<div class="form-container">
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScp9H81KSSibfSvb0oSurLsrFBSeMayqm8nb0vPIQ0qRkCC6A/viewform?embedded=true">Carregando…</iframe>
+</div>
+
+<script>
+    let slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+        let slides = document.getElementsByClassName("slide");
+        let dots = document.getElementsByClassName("dot");
+        for (let i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";  
+            dots[i].classList.remove("active");
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {slideIndex = 1}    
+        slides[slideIndex-1].style.display = "block";  
+        dots[slideIndex-1].classList.add("active");
+        setTimeout(showSlides, 3000); // Change image every 3 seconds
+    }
+
+    function currentSlide(index) {
+        slideIndex = index;
+        showSlides();
+    }
+</script>
+
+</body>
+</html>
