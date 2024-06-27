@@ -3,256 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Plano de Governo</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <title>Em Breve</title>
     <style>
         body {
-            font-family: 'Roboto', sans-serif;
             margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            background-color: #f4f4f9;
-            color: #333;
-        }
-        header {
-            background: linear-gradient(90deg, #4CAF50 0%, #388E3C 100%);
-            color: white;
-            width: 100%;
-            text-align: center;
-            padding: 20px 0;
-            font-size: 36px;
-            font-weight: 700;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            border-bottom: 2px solid #388E3C;
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f4f8;
             display: flex;
             justify-content: center;
             align-items: center;
-            flex-direction: column;
+            height: 100vh;
+            color: #333;
         }
-        header img {
-            width: 200px;
-            margin-bottom: 10px;
-        }
-        .video-title {
-            font-size: 26px;
-            font-weight: 700;
-            color: #388E3C;
-            margin: 20px 0 10px;
+        .container {
             text-align: center;
-            position: relative;
-            padding: 10px 20px;
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            background: white;
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
-        .video-container {
-            margin: 20px;
-            max-width: 800px;
-            width: 100%;
-            position: relative;
-            padding-bottom: 80.25%;
-            height: 0;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            border-radius: 8px;
-            overflow: hidden;
-            background-color: #000;
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            color: #007BFF; /* Azul da marca */
         }
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-            border-radius: 8px;
+        p {
+            font-size: 1.2em;
+            color: #666;
         }
-        .slideshow-container {
-            position: relative;
-            max-width: 800px;
-            width: 100%;
-            margin: 20px auto;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            border-radius: 8px;
-            overflow: hidden;
-        }
-        .slide {
-            display: none;
-            transition: opacity 1s;
-        }
-        .slide img {
-            width: 100%;
+        .logo {
+            width: 150px;
             height: auto;
-            border-radius: 8px;
+            margin-bottom: 20px;
         }
-        .active {
-            display: block;
-        }
-        .dots {
-            text-align: center;
-            margin-top: 10px;
-        }
-        .dot {
-            height: 15px;
-            width: 15px;
-            margin: 0 2px;
-            background-color: #bbb;
-            border-radius: 50%;
-            display: inline-block;
-            transition: background-color 0.6s ease;
-            cursor: pointer;
-        }
-        .dot.active, .dot:hover {
-            background-color: #4CAF50;
-        }
-        .title-container, .form-container {
-            max-width: 800px;
-            width: 100%;
-            text-align: center;
-            margin: 40px 20px;
-            padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            border-radius: 8px;
-        }
-        .title-container h2 {
-            font-size: 32px;
-            font-weight: 700;
-            margin: 0;
-            color: #388E3C;
-        }
-        .title-container p {
-            font-size: 18px;
-            line-height: 1.6;
-            color: #555;
-            margin-top: 20px;
-            text-align: left;
-        }
-        .form-container iframe {
-            width: 100%;
-            height: 2500px; 
-            border: none;
-            border-radius: 8px;
-        }
-        .icon {
-            margin-right: 10px;
-            color: #4CAF50;
-        }
-        #logo {
-            width: 406px;
-            height: auto;
-        }
-
-        @media (max-width: 767px) {
-            .video-container {
-                padding-bottom: 150%;
-            }
-            .title-container p {
-                padding-left: 15px;
-                padding-right: 15px;
-            }
-        
-                #logo {
-                margin-top: 20px;
-                width: 260px;
-                height: auto;
-            }
-        }
-
     </style>
 </head>
 <body>
-
-<!-- <header data-aos="fade-down">
-    <div>Plano de Governo Participativo</div>
-    <div style="font-size: 20px; font-weight: normal;">Vamos juntos projetar a Pau dos Ferros 2025-2028!</div>
-</header> -->
-
-<!-- <div class="video-title" data-aos="fade-up">
-</div> -->
-<!-- <div style="display: flex; justify-content: center; margin-top: 25px;"> -->
-<img id="logo" src="assets/Construção do Plano de Governo Participativo_LOGO.png" alt="" >
-    <!-- <img src="./assets/PDF 360 - Logo.png" alt="" style="width: 206px; height: auto;"> -->
-<!-- </div> -->
-
-<div class="slideshow-container" data-aos="fade-up">
-    <div class="slide active">
-        <img src="assets/VITRINES (1).jpg" alt="Foto 1">
+    <div class="container">
+        <h1>Em Breve</h1>
+        <p>Fique atento!</p>
     </div>
-    <div class="slide">
-        <img src="assets/VITRINES (2).jpg" alt="Foto 2">
-    </div>
-    <div class="slide">
-        <img src="assets/VITRINES (3).jpg" alt="Foto 3">
-    </div>
-    <div class="slide">
-        <img src="assets/VITRINES (4).jpg" alt="Foto 4">
-    </div>
-    <div class="slide">
-        <img src="assets/VITRINES (5).jpg" alt="Foto 5">
-    </div>
-</div>
-<div class="dots" data-aos="fade-up">
-    <span class="dot active" onclick="currentSlide(0)"></span>
-    <span class="dot" onclick="currentSlide(1)"></span>
-    <span class="dot" onclick="currentSlide(2)"></span>
-    <span class="dot" onclick="currentSlide(3)"></span>
-    <span class="dot" onclick="currentSlide(4)"></span>
-</div>
-
-<div class="video-container" data-aos="fade-up">
-    <iframe src="https://www.instagram.com/reel/C6_mmYiOTTv/embed" allowfullscreen></iframe>
-</div>
-
-<div class="title-container" data-aos="fade-up">
-    <h2><i class="fas fa-bullhorn icon"></i>Consulta Pública para Construção do Plano De Governo Participativo 2025-2028 da prefeita Marianna Almeida!</h2>
-    <p>A prefeita e pré-candidata à reeleição de Pau dos Ferros, Marianna Almeida, iniciou sua pré-campanha em 2024 ouvindo a população. A partir do projeto "Pau dos Ferros 360º", ela ativou visitas aos bairros do município para coletar sugestões de forma participativa.</p>
-    <p>Agora, mais um passo é dado para promover o acesso da população como um todo, do jovem ao idoso. Além dos encontros presenciais, que acontecerão até as vésperas da Convenção, estamos lançando esta página com o objetivo de facilitar o recebimento de ideias em todas as áreas da administração pública.</p>
-    <p>Por meio deste formulário, você pode contribuir com o nosso plano de duas formas:</p>
-    <p><i class="fas fa-lightbulb icon"></i>1) Apresentando propostas que você acha que devem ser incluídas no Plano de Governo;</p>
-    <p><i class="fas fa-exclamation-triangle icon"></i>2) Relatando problemas que você sabe que Pau dos Ferros enfrenta e que precisam ser solucionados.</p>
-    <p>Pedimos que, ao preencher o formulário, indique uma proposta ou um problema por vez.</p>
-    <p>Agradecemos a sua contribuição.</p>
-</div>
-
-<div class="form-container" data-aos="fade-up">
-    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSe-9Ng3_FFyGjr5fkkUqkxJ8bUHVDVNO7LjhSy3q_v2LiIW4Q/viewform?embedded=true" onload="this.style.height = this.contentWindow.document.body.scrollHeight + 'px';"></iframe>
-</div>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        AOS.init({
-            duration: 1000,
-            once: true,
-        });
-
-        let slideIndex = 0;
-        showSlides();
-
-        function showSlides() {
-            let slides = document.getElementsByClassName("slide");
-            let dots = document.getElementsByClassName("dot");
-            for (let i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";
-                dots[i].classList.remove("active");
-            }
-            slideIndex++;
-            if (slideIndex > slides.length) { slideIndex = 1 }
-            slides[slideIndex - 1].style.display = "block";
-            dots[slideIndex - 1].classList.add("active");
-            setTimeout(showSlides, 3000);
-        }
-
-        window.currentSlide = function(index) {
-            slideIndex = index;
-            showSlides();
-        }
-    });
-</script>
-
 </body>
 </html>

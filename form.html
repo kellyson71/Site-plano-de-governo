@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plano de Governo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5HSZCF2050"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-5HSZCF2050');
+</script>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        header {
+            background: linear-gradient( #0e70b6 0%, #d3edff 100%);
+            color: white;
+            width: 100%;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 36px;
+            font-weight: 700;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-bottom: 2px solid #388E3C;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        header img {
+            width: 200px;
+            margin-bottom: 10px;
+        }
+        .video-title {
+            font-size: 26px;
+            font-weight: 700;
+            color: #388E3C;
+            margin: 20px 0 10px;
+            text-align: center;
+            position: relative;
+            padding: 10px 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .video-container {
+            margin: 20px;
+            max-width: 800px;
+            width: 100%;
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: #000;
+        }
+        .video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 8px;
+        }
+        .slideshow-container {
+            position: relative;
+            max-width: 800px;
+            width: 100%;
+            margin: 20px auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .slide {
+            display: none;
+            transition: opacity 1s;
+        }
+        .slide img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .active {
+            display: block;
+        }
+        .dots {
+            text-align: center;
+            margin-top: 10px;
+        }
+        .dot {
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+            cursor: pointer;
+        }
+        .dot.active, .dot:hover {
+            background-color: #4CAF50;
+        }
+        .title-container, .form-container {
+            max-width: 800px;
+            width: 100%;
+            text-align: center;
+            margin: 40px 20px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+        }
+        .title-container h2 {
+            font-size: 32px;
+            font-weight: 700;
+            margin: 0;
+            color: #388E3C;
+        }
+        .title-container p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #555;
+            margin-top: 20px;
+            text-align: left;
+        }
+        .form-container iframe {
+            width: 100%;
+            height: 2500px; 
+            border: none;
+            border-radius: 8px;
+        }
+        .icon {
+            margin-right: 10px;
+            color: #4CAF50;
+        }
+
+        #header-top {
+        background: linear-gradient(to bottom, #0000ff, #0e70b6);
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 190px 0;
+        }
+        #logo {
+            width: 500px; 
+            height: auto;
+        }
+        #vitrine-container {
+            position: relative;
+            width: 100%;
+            height: auto;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: fadeZoomIn 2s ease-in-out;
+            background-attachment: fixed; 
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-image: url('assets/VITRINE(8).JPG'); /* Ajuste o caminho da imagem conforme necessário */
+        }
+
+        #vitrine-image {
+            width: 100%;
+            filter: brightness(30%); 
+        }
+
+        #logo_plano {
+            position: absolute;
+            top: 70%;
+            left: 50%;
+            transform: translate(-50%, -50%); 
+            width: 600px;
+            height: auto;
+            z-index: 1;
+        }
+
+        @keyframes fadeZoomIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @media (max-width: 767px) {
+            .video-container {
+                padding-bottom: 150%;
+            }
+            .title-container p {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+        
+                #logo {
+                margin-top: 20px;
+                width: 260px;
+                height: auto;
+            }
+            #vitrine-container {
+                position: relative;
+                width: 100%;
+                height: 500px;
+                overflow: hidden;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                animation: fadeZoomIn 2s ease-in-out;
+                background-attachment: fixed;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: contain; 
+                background-image: url('assets/VITRINE(8).JPG'); 
+            }
+
+            #vitrine-image {
+                height: 100%;
+                filter: brightness(30%);            }
+
+            #logo_plano {
+                position: absolute;
+                top: 50%; 
+                left: 50%;
+                transform: translate(-50%, -50%); 
+                width: 100%;
+                height: auto;
+                z-index: 1;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+<!-- <header data-aos="fade-down">
+    <div>Plano de Governo Participativo</div>
+    <div style="font-size: 20px; font-weight: normal;">Vamos juntos projetar a Pau dos Ferros 2025-2028!</div>
+</header> -->
+
+<!-- <div class="video-title" data-aos="fade-up">
+</div> -->
+<!-- <div style="display: flex; justify-content: center; margin-top: 25px;"> -->
+    <div id="header-top">
+        <img id="logo" src="assets/PDF 360 - Logo_BRANCA.png" alt="">
+        <script>
+    window.addEventListener('scroll', function() {
+        var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        var scaleFactor = 0.2; // Ajuste este valor para controlar a velocidade da rotação (0.5 significa metade da velocidade original)
+        var rotation = (scrollTop * scaleFactor) % 360;
+        document.getElementById('logo').style.transform = 'rotate(' + rotation + 'deg)';
+    });
+</script>
+
+    </div>    <!-- <img src="./assets/PDF 360 - Logo.png" alt="" style="width: 206px; height: auto;"> -->
+<!-- </div> -->
+
+<div class="slideshow-container" data-aos="fade-up">
+    <div class="slide active">
+        <img src="assets/VITRINE(1).jpg" alt="Foto 1">
+    </div>
+    <div class="slide">
+        <img src="assets/VITRINE(2).jpg" alt="Foto 2">
+    </div>
+    <div class="slide">
+        <img src="assets/VITRINE(3).jpg" alt="Foto 3">
+    </div>
+    <div class="slide">
+        <img src="assets/VITRINE(4).jpg" alt="Foto 4">
+    </div>
+    <div class="slide">
+        <img src="assets/VITRINE(5).jpg" alt="Foto 5">
+    </div>
+</div>
+<div class="dots" data-aos="fade-up">
+    <span class="dot active" onclick="currentSlide(0)"></span>
+    <span class="dot" onclick="currentSlide(1)"></span>
+    <span class="dot" onclick="currentSlide(2)"></span>
+    <span class="dot" onclick="currentSlide(3)"></span>
+    <span class="dot" onclick="currentSlide(4)"></span>
+</div>
+
+<div class="video-container" data-aos="fade-up">
+    <video controls>
+        <source src="./assets/Snapinsta.mp4" type="video/mp4">
+        Seu navegador não suporta o elemento de vídeo.
+    </video>
+    
+</div>
+
+<div class="title-container" data-aos="fade-up">
+    <h2><i class="fas fa-bullhorn icon"></i>Consulta Pública para Construção do Plano De Governo Participativo 2025-2028 da prefeita Marianna Almeida!</h2>
+    <!--<p>A prefeita e pré-candidata à reeleição de Pau dos Ferros, Marianna Almeida, iniciou sua pré-campanha em 2024 ouvindo a população. A partir do projeto "Pau dos Ferros 360º", ela ativou visitas aos bairros do município para coletar sugestões de forma participativa.</p>-->
+    <!--<p>Agora, mais um passo é dado para promover o acesso da população como um todo, do jovem ao idoso. Além dos encontros presenciais, que acontecerão até as vésperas da Convenção, estamos lançando esta página com o objetivo de facilitar o recebimento de ideias em todas as áreas da administração pública.</p>-->
+    <p>Por meio deste formulário, você pode contribuir com o nosso plano de duas formas:</p>
+    <p><i class="fas fa-lightbulb icon"></i>1) Apresentando propostas que você acha que devem ser incluídas no Plano de Governo;</p>
+    <p><i class="fas fa-exclamation-triangle icon"></i>2) Relatando problemas que você sabe que Pau dos Ferros enfrenta e que precisam ser solucionados.</p>
+    <p>Pedimos que, ao preencher o formulário, indique uma proposta ou um problema por vez.</p>
+    <p>Agradecemos a sua contribuição.</p>
+</div>
+<div id="vitrine-container" data-aos="zoom-in" data-aos-duration="2000">
+    <img id="vitrine-image" src="assets/VITRINE(8).JPG" alt="Imagem da Vitrine">
+    <img id="logo_plano" src="assets/Construção do Plano de Governo Participativo_LOGO.png" alt="Logo do Plano de Governo Participativo">
+</div>
+
+<!--<div class="title-container" data-aos="fade-up">-->
+<!--    <p>Agora, mais um passo é dado para promover o acesso da população como um todo, do jovem ao idoso. Além dos encontros presenciais, que acontecerão até as vésperas da Convenção, estamos lançando esta página com o objetivo de facilitar o recebimento de ideias em todas as áreas da administração pública.</p>-->
+<!--    <p>Por meio deste formulário, você pode contribuir com o nosso plano de duas formas:</p>-->
+<!--    <p><i class="fas fa-lightbulb icon"></i>1) Apresentando propostas que você acha que devem ser incluídas no Plano de Governo;</p>-->
+<!--    <p><i class="fas fa-exclamation-triangle icon"></i>2) Relatando problemas que você sabe que Pau dos Ferros enfrenta e que precisam ser solucionados.</p>-->
+<!--    <p>Pedimos que, ao preencher o formulário, indique uma proposta ou um problema por vez.</p>-->
+<!--    <p>Agradecemos a sua contribuição.</p>-->
+<!--</div>-->
+
+<div class="form-container" data-aos="fade-up">
+
+    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    <link href="//stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
+    
+ 
+    <style>
+    
+    /*body {*/
+    /*  max-width: 640px;*/
+    /*  padding: 1rem;*/
+    /*}*/
+    
+    </style>
+    
+
+
+    
+    <div class="bootstrap" id="google-forms-css">
+    
+      <!-- carregando -->
+      <div id="google-forms-css-loading">
+        <p>Carregando…</p>
+      </div>
+    
+      <div id="google-forms-css-main" style="display: none;">
+    
+        <!-- cabeçalho -->
+        <p>Por favor, preencha o formulário abaixo.</p>
+        <p class="text-danger">* Obrigatório</p>
+    
+        <form id="google-forms-css-form"></form>
+    
+        <!-- rodapé -->
+    
+      </div>
+    
+      <!-- confirmação -->
+      <div id="google-forms-css-confirmation" style="display: none;">
+        <p>Obrigado!</p>
+      </div>
+    
+    </div>
+    
+    <script src="google-forms-css/google-forms-css.js"></script>
+    <script>
+    
+    new googleFormsCSS({
+      formURL: 'https://docs.google.com/forms/d/e/1FAIpQLSe-9Ng3_FFyGjr5fkkUqkxJ8bUHVDVNO7LjhSy3q_v2LiIW4Q/viewform?embedded=true', // formulário de exemplo
+
+    });
+    
+    </script>
+    
+  
+    </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    AOS.init({
+        duration: 1000,
+        once: true,
+    });
+
+    let slideIndex = 0;
+    let slideTimeout;
+    showSlides();
+
+    function showSlides() {
+        let slides = document.getElementsByClassName("slide");
+        let dots = document.getElementsByClassName("dot");
+        for (let i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+            dots[i].classList.remove("active");
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) { slideIndex = 1 }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].classList.add("active");
+        slideTimeout = setTimeout(showSlides, 3000);
+    }
+
+    window.currentSlide = function(index) {
+        clearTimeout(slideTimeout);
+        slideIndex = index;
+        showSlides();
+    }
+});
+
+</script>
+
+</body>
+</html>
