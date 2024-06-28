@@ -1,30 +1,30 @@
 var googleFormsCSS = function(params) {
 
-  console.log('googleFormsCSS function called'); // Adicionado para depuração
+  console.log('googleFormsCSS function called'); 
 
 
   var style = document.createElement('style');
   style.type = 'text/css';
   style.innerHTML = `
     .form-group {
-      margin-bottom: 2rem; /* Increase spacing between questions */
+      margin-bottom: 2rem; 
     }
     .form-group label,
     .form-group p,
     .form-group small {
-      text-align: justify; /* Justify text */
+      text-align: justify; 
     }
   `;
   document.head.appendChild(style);
-  console.log('Style element added to head'); // depuração
+  console.log('Style element added to head'); 
 
-  // jquery
+  
   if (typeof jQuery === 'undefined') {
     console.error('google-forms-css > jquery not found');
     return;
   }
 
-  // form url
+  
   var formURL = params.formURL;
   if (!formURL.match('^https:\/\/docs.google.com\/forms\/.*')) {
     console.error('google-forms-css > invalid form url');
@@ -32,13 +32,13 @@ var googleFormsCSS = function(params) {
   }
   formURL = formURL.replace('viewform', 'formResponse');
 
-  // request
+  
   jQuery.get('google-forms-css/google-forms-css-cors.php?url=' + formURL, function(data) {
 
-    console.log('Data received from form URL'); // Adicionado para depuração
+    console.log('Data received from form URL'); 
 
 
-    // form data
+    
     var needle = 'var FB_PUBLIC_LOAD_DATA_ = ';
     var start = data.indexOf(needle);
     if (start === -1) {
@@ -49,49 +49,49 @@ var googleFormsCSS = function(params) {
     var json = data.substring(start + needle.length, end);
     var formData = JSON.parse(json);
 
-    // items
+    
     var items = formData[1][1];
     items.forEach(function(item, index) {
 
       var title = item[1];
       var description = item[2];
 
-      // type
+      
       var type;
       switch(item[3]) {
-        case 0: { // google forms: short answer
-          if (item[4][0][4] && item[4][0][4][0][0] === 2 && item[4][0][4][0][1] === 102) { // google forms: response validation > text > email address
+        case 0: { 
+          if (item[4][0][4] && item[4][0][4][0][0] === 2 && item[4][0][4][0][1] === 102) { 
             type = 'email';
           } else {
             type = 'text';
           }
           break;
         }
-        case 1: { // google forms: paragraph
+        case 1: { 
           type = 'textarea';
           break;
         }
-        case 2: { // google forms: multiple choice
+        case 2: { 
           type = 'radio';
           break;
         }
-        case 3: { // google forms: dropdown
+        case 3: { 
           type = 'select';
           break;
         }
-        case 4: { // google forms: checkboxes
+        case 4: { 
           type = 'checkbox';
           break;
         }
-        case 6: { // google forms: title and description
+        case 6: { 
           type = 'section';
           break;
         }
-        case 9: { // google forms: date
+        case 9: { 
           type = 'date';
           break;
         }
-        case 10: { // google forms: time
+        case 10: { 
           type = 'time';
           break;
         }
@@ -106,7 +106,7 @@ var googleFormsCSS = function(params) {
         var required = item[4][0][2] ? true : false;
       }
 
-      // options
+      
       if (type === 'checkbox' || type === 'radio' || type === 'select') {
         var options = [];
         item[4][0][1].forEach(function(item, index) {
@@ -114,30 +114,30 @@ var googleFormsCSS = function(params) {
         });
       }
 
-      // console.log('google-forms-css > title:', title);
-      // console.log('google-forms-css > description:', description);
-      // console.log('google-forms-css > type:', type);
-      // console.log('google-forms-css > name:', name);
-      // console.log('google-forms-css > required:', required);
-      // console.log('google-forms-css > options:', options);
+      
+      
+      
+      
+      
+      
 
-      //
-      // build
-      //
+      
+      
+      
 
-      // section
+      
       if (type === 'section') {
 
         var group = jQuery('<div class="form-group" style="margin: 2rem 0;"></div>');
 
-        // title
+        
         if (title) {
           var titleEl = jQuery('<div class="h2"></div>');
           titleEl.text(title);
           group.append(titleEl);
         }
 
-        // description
+        
         if (description) {
           var descriptionEl = jQuery('<p></p>');
           description = description.split('\n').join('<br>');
@@ -152,7 +152,7 @@ var googleFormsCSS = function(params) {
 
       var group = jQuery('<div class="form-group"></div>');
 
-      // label
+      
       if (title || description) {
 
         var labelEl = jQuery('<label></label>');
@@ -160,7 +160,7 @@ var googleFormsCSS = function(params) {
           labelEl.attr('for', 'google-forms-css-' + name);
         }
 
-        // title
+        
         if (title) {
           var titleEl = jQuery('<div></div>');
           titleEl.text(title);
@@ -170,7 +170,7 @@ var googleFormsCSS = function(params) {
           labelEl.append(titleEl);
         }
 
-        // description
+        
         if (description) {
           var descriptionEl = jQuery('<small class="text-muted"></small>');
           descriptionEl.text(description);
@@ -181,7 +181,7 @@ var googleFormsCSS = function(params) {
 
       }
 
-      // checkbox / radio
+      
       if (type === 'checkbox' || type === 'radio') {
 
         options.forEach(function(item, index) {
@@ -190,7 +190,7 @@ var googleFormsCSS = function(params) {
           var inputVal = item;
           var labelVal = item;
 
-          // other
+          
           if (item === '') {
             inputVal = '__other_option__';
             labelVal = 'Other:';
@@ -198,7 +198,7 @@ var googleFormsCSS = function(params) {
 
           var check = jQuery('<div class="form-check"></div>');
 
-          // input
+          
           var input = jQuery('<input class="form-check-input">');
           input.attr('id', id);
           input.attr('name', 'entry.' + name);
@@ -206,7 +206,7 @@ var googleFormsCSS = function(params) {
           input.attr('type', type);
           input.attr('value', inputVal);
 
-          // update required
+          
           if (type === 'checkbox' && required) {
             input.change(function() {
               var name = $(this).attr('name');
@@ -227,13 +227,13 @@ var googleFormsCSS = function(params) {
 
           check.append(input);
 
-          // check label
+          
           var checkLabel = jQuery('<label class="form-check-label"></label>');
           checkLabel.attr('for', id);
           checkLabel.text(labelVal);
           check.append(checkLabel);
 
-          // other
+          
           if (item === '') {
             var otherInput = jQuery('<input class="form-control" type="text">');
             otherInput.attr('id', name + '-other');
@@ -242,7 +242,7 @@ var googleFormsCSS = function(params) {
             check.append(otherInput);
           }
 
-          // update other
+          
           input.change(function() {
             var name = $(this).attr('name');
             var parent = $('input[name="' + name + '"][value="__other_option__"]');
@@ -264,7 +264,7 @@ var googleFormsCSS = function(params) {
 
       }
 
-      // select
+      
       else if (type === 'select') {
 
         var select = jQuery('<select class="form-control"></select>');
@@ -284,7 +284,7 @@ var googleFormsCSS = function(params) {
 
       }
 
-      // email / text / textarea
+      
       else {
 
         if (type === 'textarea') {
@@ -313,15 +313,15 @@ var googleFormsCSS = function(params) {
 
   });
 
-  //
-  // submit
-  //
+  
+  
+  
 
   jQuery('#google-forms-css-form').on('submit', function(e) {
 
     e.preventDefault();
 
-    // request
+    
     jQuery.ajax({
       url: formURL,
       data: jQuery(this).serialize(),
@@ -329,7 +329,7 @@ var googleFormsCSS = function(params) {
 
       console.warn('google-forms-css > don\'t worry, \'failed to load\' is expected');
 
-      // confirmation
+      
       if (params.confirmationURL) {
         window.location.href = params.confirmationURL;
       } else {

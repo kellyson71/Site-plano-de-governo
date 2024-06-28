@@ -3,45 +3,474 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Em Breve</title>
+    <title>Plano de Governo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="icon" type="image/png" href="assets/PDF 360 - Logo_BRANCA.png">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5HSZCF2050"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-5HSZCF2050');
+</script>
     <style>
         body {
+            font-family: 'Roboto', sans-serif;
             margin: 0;
-            font-family: 'Arial', sans-serif;
-            background-color: #f0f4f8;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        header {
+            background: linear-gradient( #0e70b6 0%, #d3edff 100%);
+            color: white;
+            width: 100%;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 36px;
+            font-weight: 700;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-bottom: 2px solid #388E3C;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            color: #333;
+            flex-direction: column;
         }
-        .container {
+        header img {
+            width: 200px;
+            margin-bottom: 10px;
+        }
+        .video-title {
+            font-size: 26px;
+            font-weight: 700;
+            color: #388E3C;
+            margin: 20px 0 10px;
             text-align: center;
-            background: white;
-            padding: 50px;
-            border-radius: 15px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+            padding: 10px 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
-        h1 {
-            font-size: 3em;
-            margin-bottom: 20px;
-            color: #007BFF; /* Azul da marca */
+        .video-container {
+            margin: 20px;
+            max-width: 800px;
+            width: 100%;
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: #000;
         }
-        p {
-            font-size: 1.2em;
-            color: #666;
+        .video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 8px;
         }
-        .logo {
-            width: 150px;
+        .slideshow-container {
+            position: relative;
+            max-width: 800px;
+            width: 100%;
+            margin: 20px auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .slide {
+            display: none;
+            transition: opacity 1s;
+        }
+        .slide img {
+            width: 100%;
             height: auto;
-            margin-bottom: 20px;
+            border-radius: 8px;
         }
+        footer {
+            background: linear-gradient(135deg, #4CAF50, #388E3C);
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            margin-top: auto;
+            width: 100%;
+            font-family: 'Roboto', sans-serif;
+            box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .social-icons {
+            margin-left: 10px;
+        }
+        
+        .social-icon {
+            color: #fff;
+            font-size: 24px;
+            margin: 0 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            transform: translateY(-3px);
+        }
+        
+        .footer-text {
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        .active {
+            display: block;
+        }
+        .dots {
+            text-align: center;
+            margin-top: 10px;
+        }
+        .dot {
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+            cursor: pointer;
+        }
+        .dot.active, .dot:hover {
+            background-color: #4CAF50;
+        }
+        .title-container, .form-container {
+            max-width: 800px;
+            width: 100%;
+            text-align: center;
+            margin: 40px 20px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+        }
+        .title-container h2 {
+            font-size: 32px;
+            font-weight: 700;
+            margin: 0;
+            color: #388E3C;
+        }
+        .title-container p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #555;
+            margin-top: 20px;
+            text-align: left;
+        }
+        .form-container iframe {
+            width: 100%;
+            height: 2500px; 
+            border: none;
+            border-radius: 8px;
+        }
+        .icon {
+            margin-right: 10px;
+            color: #4CAF50;
+        }
+
+        #header-top {
+        background: linear-gradient(to bottom, #0000ff, #0e70b6);
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 190px 0;
+        }
+        #logo {
+            width: 500px; 
+            height: auto;
+        }
+        #vitrine-container {
+            position: relative;
+            width: 100%;
+            height: auto;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: fadeZoomIn 2s ease-in-out;
+            background-attachment: fixed; 
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-image: url('assets/VITRINE(8).JPG'); 
+        }
+
+        #vitrine-image {
+            width: 100%;
+            filter: brightness(30%); 
+        }
+
+        #logo_plano {
+            position: absolute;
+            top: 70%;
+            left: 50%;
+            transform: translate(-50%, -50%); 
+            width: 600px; 
+            height: auto;
+            z-index: 1;
+        }
+
+        @keyframes fadeZoomIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @media (max-width: 767px) {
+            .video-container {
+                padding-bottom: 150%;
+            }
+            .title-container p {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+        
+                #logo {
+                margin-top: 20px;
+                width: 260px;
+                height: auto;
+            }
+            #vitrine-container {
+                position: relative;
+                width: 100%;
+                height: 500px;
+                overflow: hidden;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                animation: fadeZoomIn 2s ease-in-out;
+                background-attachment: fixed; 
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: contain; 
+                background-image: url('assets/VITRINE(8).JPG'); 
+            }
+
+            #vitrine-image {
+                height: 100%;
+                object-fit: cover; 
+                filter: brightness(30%); 
+            }
+
+            #logo_plano {
+                position: absolute;
+                top: 50%; 
+                left: 50%; 
+                transform: translate(-50%, -50%); 
+                width: 100%; 
+                height: auto;
+                z-index: 1;
+            }
+        }
+
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Em Breve</h1>
-        <p>Fique atento!</p>
+
+
+
+
+
+    <div id="header-top">
+        <img id="logo" src="assets/PDF 360 - Logo_BRANCA.png" alt="">
+        <script>
+    window.addEventListener('scroll', function() {
+        var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        var scaleFactor = 0.2; 
+        var rotation = (scrollTop * scaleFactor) % 360;
+        document.getElementById('logo').style.transform = 'rotate(' + rotation + 'deg)';
+    });
+</script>
+
+    </div>    
+
+
+<div class="slideshow-container" data-aos="fade-up">
+    <div class="slide active">
+        <img src="assets/VITRINE(1).jpg" alt="Foto 1">
     </div>
+    <div class="slide">
+        <img src="assets/VITRINE(2).jpg" alt="Foto 2">
+    </div>
+    <div class="slide">
+        <img src="assets/VITRINE(3).jpg" alt="Foto 3">
+    </div>
+    <div class="slide">
+        <img src="assets/VITRINE(4).jpg" alt="Foto 4">
+    </div>
+    <div class="slide">
+        <img src="assets/VITRINE(5).jpg" alt="Foto 5">
+    </div>
+</div>
+<div class="dots" data-aos="fade-up">
+    <span class="dot active" onclick="currentSlide(0)"></span>
+    <span class="dot" onclick="currentSlide(1)"></span>
+    <span class="dot" onclick="currentSlide(2)"></span>
+    <span class="dot" onclick="currentSlide(3)"></span>
+    <span class="dot" onclick="currentSlide(4)"></span>
+</div>
+
+<div class="video-container" data-aos="fade-up">
+    <video controls>
+        <source src="./assets/Snapinsta.mp4" type="video/mp4">
+        Seu navegador não suporta o elemento de vídeo.
+    </video>
+    
+</div>
+
+<div class="title-container" data-aos="fade-up">
+    <h2><i class="fas fa-bullhorn icon"></i>Consulta Pública para Construção do Plano De Governo Participativo 2025-2028 da prefeita Marianna Almeida!</h2>
+    
+    
+    <p>Por meio deste formulário, você pode contribuir com o nosso plano de duas formas:</p>
+    <p><i class="fas fa-lightbulb icon"></i>1) Apresentando propostas que você acha que devem ser incluídas no Plano de Governo;</p>
+    <p><i class="fas fa-exclamation-triangle icon"></i>2) Relatando problemas que você sabe que Pau dos Ferros enfrenta e que precisam ser solucionados.</p>
+    <p>Pedimos que, ao preencher o formulário, indique uma proposta ou um problema por vez.</p>
+    <p>Agradecemos a sua contribuição.</p>
+</div>
+<div id="vitrine-container" data-aos="zoom-in" data-aos-duration="2000">
+    <img id="vitrine-image" src="assets/VITRINE(8).JPG" alt="Imagem da Vitrine">
+    <img id="logo_plano" src="assets/Construção do Plano de Governo Participativo_LOGO.png" alt="Logo do Plano de Governo Participativo">
+</div>
+
+
+
+
+
+
+
+
+
+
+<div class="form-container" data-aos="fade-up">
+
+    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    <link href="//stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
+    
+ 
+    <style>
+    
+    
+    
+    
+    
+    
+    </style>
+    
+
+
+    
+    <div class="bootstrap" id="google-forms-css">
+    
+      
+      <div id="google-forms-css-loading">
+        <p>Carregando…</p>
+      </div>
+    
+      <div id="google-forms-css-main" style="display: none;">
+    
+        
+        <p>Por favor, preencha o formulário abaixo.</p>
+        <p class="text-danger">* Obrigatório</p>
+    
+        <form id="google-forms-css-form"></form>
+    
+        
+    
+      </div>
+    
+      
+      <div id="google-forms-css-confirmation" style="display: none;">
+        <p>Obrigado!</p>
+      </div>
+    
+    </div>
+    
+    <script src="google-forms-css/google-forms-css.js"></script>
+    <script>
+    
+    new googleFormsCSS({
+      formURL: 'https://docs.google.com/forms/d/e/1FAIpQLSe-9Ng3_FFyGjr5fkkUqkxJ8bUHVDVNO7LjhSy3q_v2LiIW4Q/viewform?embedded=true', // formulário de exemplo
+
+    });
+    
+    </script>
+    
+  
+    </div>
+<footer>
+    <div class="footer-content">
+        <p>Nos siga nas redes sociais:</p>
+        <div class="social-icons">
+            <a href="https://www.instagram.com/mariannalmeida/" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="mailto:seuemail@example.com" target="_blank" class="social-icon"><i class="far fa-envelope"></i></a>
+        </div>
+    </div>
+    <p class="footer-text">© 2024 Plano de Governo Participativo | Todos os direitos reservados</p>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    AOS.init({
+        duration: 1000,
+        once: true,
+    });
+
+    let slideIndex = 0;
+    let slideTimeout;
+    showSlides();
+
+    function showSlides() {
+        let slides = document.getElementsByClassName("slide");
+        let dots = document.getElementsByClassName("dot");
+        for (let i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+            dots[i].classList.remove("active");
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) { slideIndex = 1 }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].classList.add("active");
+        slideTimeout = setTimeout(showSlides, 3000);
+    }
+
+    window.currentSlide = function(index) {
+        clearTimeout(slideTimeout);
+        slideIndex = index;
+        showSlides();
+    }
+});
+
+</script>
+
 </body>
 </html>
