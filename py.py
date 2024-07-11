@@ -2,7 +2,7 @@ import re
 
 def remove_comments(code):
     code = re.sub(r'\/\*.*?\*\/', '', code, flags=re.DOTALL)
-    code = re.sub(r'\/\/(.*?)\n', r'\1\n', code)  # Modificação aqui
+    code = re.sub(r'\/\/(.*?)\n', r'\1\n', code) 
     return code
 
 with open('./google-forms-css/google-forms-css.js', 'r+', encoding='utf-8') as file:
