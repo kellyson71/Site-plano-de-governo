@@ -1,7 +1,7 @@
 # Plano de Governo Participativo 2025-2028
 http://paudosferros360graus.com.br/
 
-Este repositório contém o código-fonte do site para o Plano de Governo Participativo 2025-2028 da prefeita Marianna Almeida.
+código-fonte do site para o Plano de Governo Participativo 2025-2028 da prefeita Marianna Almeida.
 
 ## Estrutura do Projeto
 
@@ -35,4 +35,10 @@ Este repositório contém o código-fonte do site para o Plano de Governo Partic
 
 2. Abra o arquivo `index.html`.
    
-![image](https://github.com/user-attachments/assets/5d218e56-6174-45e8-b1dc-ba5040f586e9)
+   
+![image](https://github.com/user-attachments/assets/5d218e56-6174-45e8-b1dc-ba5040f586e9) 
+![image](https://github.com/user-attachments/assets/b2d3017b-2bb8-4598-a57f-f4d4d0c7e2ef)
+
+
+
+
