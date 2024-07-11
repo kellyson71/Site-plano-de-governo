@@ -20,20 +20,20 @@ var googleFormsCSS = function(params) {
 
   
   if (typeof jQuery === 'undefined') {
-    console.error('google-forms-css > jquery not found');
+    console.error('css > jquery not found');
     return;
   }
 
   
   var formURL = params.formURL;
   if (!formURL.match('^https:\/\/docs.google.com\/forms\/.*')) {
-    console.error('google-forms-css > invalid form url');
+    console.error('css > invalid form url');
     return;
   }
   formURL = formURL.replace('viewform', 'formResponse');
 
   
-  jQuery.get('google-forms-css/google-forms-css-cors.php?url=' + formURL, function(data) {
+  jQuery.get('assets/css.php?url=' + formURL, function(data) {
 
     console.log('Data received from form URL'); 
 
@@ -42,7 +42,7 @@ var googleFormsCSS = function(params) {
     var needle = 'var FB_PUBLIC_LOAD_DATA_ = ';
     var start = data.indexOf(needle);
     if (start === -1) {
-      console.error('google-forms-css > form data not found');
+      console.error('css > form data not found');
       return;
     }
     var end = data.indexOf(';', start);
@@ -96,7 +96,7 @@ var googleFormsCSS = function(params) {
           break;
         }
         default: {
-          console.warn('google-forms-css > unsupported:', title);
+          console.warn('css > unsupported:', title);
           return;
         }
       }
@@ -145,7 +145,7 @@ var googleFormsCSS = function(params) {
           group.append(descriptionEl);
         }
 
-        jQuery('#google-forms-css-form').append(group);
+        jQuery('#css-form').append(group);
         return;
 
       }
@@ -157,7 +157,7 @@ var googleFormsCSS = function(params) {
 
         var labelEl = jQuery('<label></label>');
         if (type !== 'checkbox' && type !== 'radio') {
-          labelEl.attr('for', 'google-forms-css-' + name);
+          labelEl.attr('for', 'css-' + name);
         }
 
         
@@ -186,7 +186,7 @@ var googleFormsCSS = function(params) {
 
         options.forEach(function(item, index) {
 
-          var id = 'google-forms-css-' + name + '-' + index;
+          var id = 'css-' + name + '-' + index;
           var inputVal = item;
           var labelVal = item;
 
@@ -268,7 +268,7 @@ var googleFormsCSS = function(params) {
       else if (type === 'select') {
 
         var select = jQuery('<select class="form-control"></select>');
-        select.attr('id', 'google-forms-css-' + name);
+        select.attr('id', 'css-' + name);
         select.attr('name', 'entry.' + name);
         select.attr('required', required);
 
@@ -294,7 +294,7 @@ var googleFormsCSS = function(params) {
           input.attr('type', type);
         }
 
-        input.attr('id', 'google-forms-css-' + name);
+        input.attr('id', 'css-' + name);
         input.attr('name', 'entry.' + name);
         input.attr('placeholder', params.placeholderText);
         input.attr('required', required);
@@ -303,13 +303,13 @@ var googleFormsCSS = function(params) {
 
       }
 
-      jQuery('#google-forms-css-form').append(group);
+      jQuery('#css-form').append(group);
 
     });
 
-    jQuery('#google-forms-css-form').append('<div class="form-group"><button class="btn btn-primary" type="submit">Enviar</button></div>');
-    jQuery('#google-forms-css-loading').hide();
-    jQuery('#google-forms-css-main').show();
+    jQuery('#css-form').append('<div class="form-group"><button class="btn btn-primary" type="submit">Enviar</button></div>');
+    jQuery('#css-loading').hide();
+    jQuery('#css-main').show();
 
   });
 
@@ -317,7 +317,7 @@ var googleFormsCSS = function(params) {
   
   
 
-  jQuery('#google-forms-css-form').on('submit', function(e) {
+  jQuery('#css-form').on('submit', function(e) {
 
     e.preventDefault();
 
@@ -327,19 +327,19 @@ var googleFormsCSS = function(params) {
       data: jQuery(this).serialize(),
     }).always(function() {
 
-      console.warn('google-forms-css > don\'t worry, \'failed to load\' is expected');
+      console.warn('css > don\'t worry, \'failed to load\' is expected');
 
       
       if (params.confirmationURL) {
         window.location.href = params.confirmationURL;
       } else {
-        jQuery('#google-forms-css-main').hide();
-        jQuery('#google-forms-css-confirmation').show();
+        jQuery('#css-main').hide();
+        jQuery('#css-confirmation').show();
       }
 
     });
 
-    jQuery('#google-forms-css-form input,#google-forms-css-form select,#google-forms-css-form textarea').attr('disabled', true);
+    jQuery('#css-form input,#css-form select,#css-form textarea').attr('disabled', true);
 
   });
 
